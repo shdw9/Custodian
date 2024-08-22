@@ -1,0 +1,7 @@
+name: Custodian
+version: '1.0-SNAPSHOT'
+main: com.shdwrealm.custodian.Custodian
+api-version: '1.20'
+load: STARTUP
+author: shdw9
+description: Delete all worlds upon player death
