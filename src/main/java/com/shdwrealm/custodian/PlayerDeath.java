@@ -1,6 +1,5 @@
 package com.shdwrealm.custodian;
 
-import com.shdwrealm.custodian.Custodian;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -21,15 +20,15 @@ public class PlayerDeath implements Listener {
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
-            System.out.println("Running Custodian ...");
+            plugin.logMessage("Running Custodian ...");
 
             String kickMessage = event.getDeathMessage();
 
-            System.out.println("Kicking out online players ...");
+            plugin.logMessage("Kicking out online players ...");
             for (Player plyr : Bukkit.getServer().getOnlinePlayers()) {
                 plyr.kickPlayer(kickMessage);
             }
-            System.out.println("Kicked out all players");
+            plugin.logMessage("Kicked out all players");
 
             World world = Bukkit.getWorld("world");
             File worldPath = world.getWorldFolder();
@@ -37,9 +36,9 @@ public class PlayerDeath implements Listener {
 
             try {
                 resetWorld.createNewFile();
-                System.out.println("Successfully created reset file");
+                plugin.logMessage("Successfully created reset file");
             } catch (IOException e) {
-                System.out.println("Failed to create reset file");
+                plugin.logMessage("Failed to create reset file");
             }
 
             Bukkit.getServer().shutdown();
