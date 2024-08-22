@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 
-public class PlayerDeath {
+public class PlayerDeath implements Listener {
 
     Custodian plugin;
 
