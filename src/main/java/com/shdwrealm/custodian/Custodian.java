@@ -49,6 +49,7 @@ public final class Custodian extends JavaPlugin {
             System.out.println("No reset file detected.");
         }
 
+        getServer().getPluginManager().registerEvents((Listener)new PlayerJoin(this), (Plugin)this);
         getServer().getPluginManager().registerEvents((Listener)new PlayerDeath(this), (Plugin)this);
 
         System.out.println("Registered PlayerDeath event.");
